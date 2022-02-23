@@ -27,7 +27,7 @@ declare class Request {
     header(obj: Record<string, any>): this;
     header(name: string, value: string): this;
     timeout(timeout: number): this;
-    agent(...fragments: any[]): this;
+    agent(...fragments: string[]): this;
     options(obj: UndiciOptions): this;
     options<T extends keyof UndiciOptions>(key: T, value: UndiciOptions[T]): this;
     auth(token: string, type?: string): this;
