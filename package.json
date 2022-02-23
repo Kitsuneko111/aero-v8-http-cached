@@ -8,9 +8,6 @@
 		"url": "https://git.farfrom.earth/aero/libs/http.git"
 	},
 	"author": "Ravy <ravy@aero.bot> (https://ravy.xyz)",
-	"contributors": [
-		"Noel <cutie@floofy.dev>"
-	],
 	"license": "BSD-3-Clause",
 	"dependencies": {
 		"undici": "^4.14.1"
