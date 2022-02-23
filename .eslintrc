@@ -1,0 +1,8 @@
+{
+	"extends": "@aero",
+	"rules": {
+		"brace-style": "off",
+		"no-prototype-builtins": "off",
+		"curly": "off"
+	}
+}
