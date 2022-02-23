@@ -4,10 +4,7 @@
 	"description": "Lightweight Undici wrapper inspired by centra",
 	"main": "src/index",
 	"types": "types/index.d.ts",
-	"repository": {
-		"type": "git",
-		"url": "https://git.farfrom.earth/aero/libs/http.git"
-	},
+	"repository": "https://ravy.dev/aero/libs/http",
 	"author": "Ravy <ravy@aero.bot> (https://ravy.xyz)",
 	"license": "BSD-3-Clause",
 	"dependencies": {
