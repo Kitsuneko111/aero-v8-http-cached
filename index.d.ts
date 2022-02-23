@@ -1,20 +1,19 @@
 import Dispatcher from "undici/types/dispatcher";
 
-// this isn't declared in the undici types so i have to do this shitfuckery
 declare type UndiciOptions = Partial<{ dispatcher?: Dispatcher } & Omit<Dispatcher.RequestOptions, 'origin' | 'path' | 'method'> & Partial<Pick<Dispatcher.RequestOptions, 'method'>>>;
 
 declare class Request {
-    url: URL;
-    httpMethod: string;
-    data: any;
-    sendDataAs: any;
-    reqHeaders: Record<string, string>;
-    streamEnabled: boolean;
-    compressionEnabled: boolean;
-    ua: string;
-    coreOptions: UndiciOptions;
-    timeoutDuration: number;
-    redirectCount: number;
+    private url: URL;
+    private httpMethod: string;
+    private data: any;
+    private sendDataAs: any;
+    private reqHeaders: Record<string, string>;
+    private streamEnabled: boolean;
+    private compressionEnabled: boolean;
+    private ua: string;
+    private coreOptions: UndiciOptions;
+    private timeoutDuration: number;
+    private redirectCount: number;
 
     constructor(url: string | URL);
 
