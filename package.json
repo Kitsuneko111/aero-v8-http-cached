@@ -1,8 +1,9 @@
 {
 	"name": "@aero/http",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Lightweight Undici wrapper inspired by centra",
 	"main": "src/index",
+	"types": "types/index.d.ts",
 	"repository": {
 		"type": "git",
 		"url": "https://git.farfrom.earth/aero/libs/http.git"
