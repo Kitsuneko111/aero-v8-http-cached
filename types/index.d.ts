@@ -2,7 +2,7 @@ import Dispatcher from "undici/types/dispatcher";
 
 declare type UndiciOptions = Partial<{ dispatcher?: Dispatcher } & Omit<Dispatcher.RequestOptions, 'origin' | 'path' | 'method'> & Partial<Pick<Dispatcher.RequestOptions, 'method'>>>;
 
-declare class Request {
+declare class Request extends Promise<Dispatcher.ResponseData> {
     private url: URL;
     private httpMethod: string;
     private data: any;
