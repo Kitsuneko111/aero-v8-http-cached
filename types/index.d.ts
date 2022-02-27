@@ -1,8 +1,6 @@
-import Dispatcher from "undici/types/dispatcher";
+import Dispatcher from 'undici/types/dispatcher';
 
-declare type UndiciOptions = Partial<{ dispatcher?: Dispatcher } & Omit<Dispatcher.RequestOptions, 'origin' | 'path' | 'method'> & Partial<Pick<Dispatcher.RequestOptions, 'method'>>>;
-
-declare class Request extends Promise<Dispatcher.ResponseData> {
+declare class RequestClass extends Promise<Dispatcher.ResponseData> {
     private url: URL;
     private httpMethod: string;
     private data: any;
@@ -11,14 +9,14 @@ declare class Request extends Promise<Dispatcher.ResponseData> {
     private streamEnabled: boolean;
     private compressionEnabled: boolean;
     private ua: string;
-    private coreOptions: UndiciOptions;
+    private coreOptions: req.UndiciOptions;
     private timeoutDuration: number;
     private redirectCount: number;
 
     constructor(url: string | URL);
 
-    //#region Options 
-    
+    //#region Options
+
     query(obj: Record<string, any>): this;
     query(name: string, value: string): this;
     path(...relativePaths: string[]): this;
@@ -27,13 +25,16 @@ declare class Request extends Promise<Dispatcher.ResponseData> {
     header(name: string, value: string): this;
     timeout(timeout: number): this;
     agent(...fragments: string[]): this;
-    options(obj: UndiciOptions): this;
-    options<T extends keyof UndiciOptions>(key: T, value: UndiciOptions[T]): this;
+    options(obj: req.UndiciOptions): this;
+    options<T extends keyof req.UndiciOptions>(
+        key: T,
+        value: req.UndiciOptions[T]
+    ): this;
     auth(token: string, type?: string): this;
     follow(count: number | boolean): this;
 
     //#endregion
-    
+
     //#region HTTP methods
 
     method(method: string): this;
@@ -42,15 +43,27 @@ declare class Request extends Promise<Dispatcher.ResponseData> {
     patch(): this;
     put(): this;
     delete(): this;
-    
+
     //#endregion
 
     json<T = any>(): Promise<T>;
     raw(): Promise<ArrayBuffer>;
+
     text(): Promise<string>;
     send(): Promise<Dispatcher.ResponseData>;
 }
 
-declare function req(url: string | URL): Request;
+declare namespace req {
+    export class Request extends RequestClass {}
+    export type Response = Dispatcher.ResponseData;
+    export type UndiciOptions = Partial<
+        { dispatcher?: Dispatcher } & Omit<
+            Dispatcher.RequestOptions,
+            'origin' | 'path' | 'method'
+        > &
+            Partial<Pick<Dispatcher.RequestOptions, 'method'>>
+    >;
+}
+declare function req(url: string | URL): req.Request;
 
 export = req;
