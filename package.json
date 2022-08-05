@@ -1,6 +1,6 @@
 {
 	"name": "@aero/http",
-	"version": "1.1.1",
+	"version": "1.1.2",
 	"description": "Lightweight Undici wrapper inspired by centra",
 	"main": "src/index",
 	"types": "types/index.d.ts",
@@ -8,7 +8,7 @@
 	"author": "Ravy <ravy@aero.bot> (https://ravy.xyz)",
 	"license": "BSD-3-Clause",
 	"dependencies": {
-		"undici": "^4.14.1"
+		"undici": "^4.16.0"
 	},
 	"devDependencies": {
 		"@aero/eslint-config": "^1.0.6",
