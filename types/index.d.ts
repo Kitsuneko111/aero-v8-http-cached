@@ -32,6 +32,7 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
     ): this;
     auth(token: string, type?: string): this;
     follow(count: number | boolean): this;
+    proxy(uri: string, token?: string): this;
 
     //#endregion
 
