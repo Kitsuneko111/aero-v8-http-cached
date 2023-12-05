@@ -1,5 +1,9 @@
 import Dispatcher from 'undici/types/dispatcher';
 
+type bodyType = 'json' | 'buffer' | 'form' | 'multipart';
+type method = 'GET' | 'POST' | 'PATCH' | 'PUT' | 'DELETE';
+type authType = 'Bearer' | 'Basic';
+
 declare class RequestClass extends Promise<Dispatcher.ResponseData> {
     private url: URL;
     private httpMethod: string;
@@ -20,7 +24,7 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
     query(obj: Record<string, any>): this;
     query(name: string, value: string): this;
     path(...relativePaths: string[]): this;
-    body(data: any, sendAs?: string): this;
+    body(data: any, sendAs?: bodyType): this;
     header(obj: Record<string, any>): this;
     header(name: string, value: string): this;
     timeout(timeout: number): this;
@@ -30,7 +34,7 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
         key: T,
         value: req.UndiciOptions[T]
     ): this;
-    auth(token: string, type?: string): this;
+    auth(token: string, type?: authType | string): this;
     follow(count: number | boolean): this;
     proxy(uri: string, token?: string): this;
 
@@ -38,7 +42,7 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
 
     //#region HTTP methods
 
-    method(method: string): this;
+    method(method: method): this;
     get(): this;
     post(): this;
     patch(): this;
