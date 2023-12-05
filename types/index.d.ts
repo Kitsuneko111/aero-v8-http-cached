@@ -22,10 +22,14 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
     //#region Options
 
     query(obj: Record<string, any>): this;
+    query(map: Map<string, string>): this;
+    query(arr: [string, string][]): this;
     query(name: string, value: string): this;
     path(...relativePaths: string[]): this;
     body(data: any, sendAs?: bodyType): this;
     header(obj: Record<string, any>): this;
+    header(map: Map<string, string>): this;
+    header(arr: [string, string][]): this;
     header(name: string, value: string): this;
     timeout(timeout: number): this;
     agent(...fragments: string[]): this;
