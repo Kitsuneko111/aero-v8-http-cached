@@ -1,6 +1,6 @@
 {
 	"name": "@aero/http",
-	"version": "2.0.0",
+	"version": "2.1.0",
 	"description": "Lightweight syntax sugar for HTTP requests. Supports undici and native fetch.",
 	"main": "src/index",
 	"types": "types/index.d.ts",
