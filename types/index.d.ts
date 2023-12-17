@@ -16,7 +16,9 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
     private coreOptions: req.UndiciOptions;
     private timeoutDuration: number;
     private redirectCount: number;
+    private requestAdapter: "undici" | "fetch";
 
+    
     constructor(url: string | URL);
 
     //#region Options
@@ -52,6 +54,15 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
     patch(): this;
     put(): this;
     delete(): this;
+
+    //#endregion
+
+    //#region Adapters
+
+    adapter(name: "undici" | "fetch"): this;
+    undici(): this;
+    fetch(): this;
+    native(): this;
 
     //#endregion
 
