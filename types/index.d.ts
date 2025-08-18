@@ -40,7 +40,7 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
         key: T,
         value: req.UndiciOptions[T]
     ): this;
-    auth(token: string, type?: authType | string): this;
+    auth(token: string, type?: authType | string, key?: string): this;
     follow(count: number | boolean): this;
     proxy(uri: string, token?: string): this;
 
