@@ -62,3 +62,4 @@ typings/
 
 # local testing
 test*
+.vscode/
