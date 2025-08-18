@@ -1,14 +1,14 @@
 {
-	"name": "@aero/http",
-	"version": "2.1.0",
-	"description": "Lightweight syntax sugar for HTTP requests. Supports undici and native fetch.",
+	"name": "@kitsuneko/http",
+	"version": "2.2.0",
+	"description": "Lightweight syntax sugar for HTTP requests. Supports undici and native fetch. Now includes caching and ratelimit support. Modified from @aero/http.",
 	"main": "src/index",
 	"types": "types/index.d.ts",
-	"repository": "https://ravy.dev/aero/v8-http",
-	"author": "Hazel <h4@ravy.dev> (https://ravy.dev)",
+	"repository": "https://github.com/Kitsuneko111/aero-v8-http-cached",
+	"author": "Hazel <h4@ravy.dev> (https://ravy.dev) and Kitsuneko111",
 	"license": "BSD-3-Clause",
 	"optionalDependencies": {
-		"undici": "^5.28.2"
+		"undici": "^5.29.0"
 	},
 	"devDependencies": {
 		"@aero/eslint-config": "^1.0.6",
