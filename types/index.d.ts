@@ -71,6 +71,11 @@ declare class RequestClass extends Promise<Dispatcher.ResponseData> {
 
     text(): Promise<string>;
     send(): Promise<Dispatcher.ResponseData>;
+    cache(number): this;
+	noCache(): this;
+	bypassCache(): this;
+	ignoreCache(): this; 
+	force(): this
 }
 
 declare namespace req {
